@@ -30,18 +30,6 @@ def main():
 
         engine.handle_input()
         engine.update()
-        # Move ball
-        self.ball.rect.x += self.ball.velocity_x
-        self.ball.rect.y += self.ball.velocity_y
-        
-        # --- Paddle collision check ---
-        if self.ball.rect.colliderect(self.left_paddle.rect):
-            self.ball.rect.left = self.left_paddle.rect.right  # prevent overlap
-            self.ball.velocity_x *= -1
-        
-        elif self.ball.rect.colliderect(self.right_paddle.rect):
-            self.ball.rect.right = self.right_paddle.rect.left
-            self.ball.velocity_x *= -1
         engine.render(SCREEN)
 
         pygame.display.flip()
